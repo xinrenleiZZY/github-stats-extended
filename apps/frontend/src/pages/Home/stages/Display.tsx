@@ -5,7 +5,7 @@ import { saveSvgAsPng } from "save-svg-as-png";
 import { CardImage } from "../../../components/Card/CardImage";
 import { getCardThemeBackdrop } from "../../../components/Card/themeBackdrop";
 import { Button } from "../../../components/Generic/Button";
-import { HOST } from "../../../constants";
+import { API_ORIGIN } from "../../../constants";
 import { useTheme } from "../../../redux/selectors/themeSelectors";
 
 interface DisplayStageProps {
@@ -39,7 +39,7 @@ export function DisplayStage({
 
   const copyMarkdown = () => {
     void navigator.clipboard.writeText(
-      `[![GitHub Stats](https://${HOST}/api${themeSuffix})](${link})`,
+      `[![GitHub Stats](${API_ORIGIN}/api${themeSuffix})](${link})`,
     );
     toast.info("Copied to Clipboard!", {
       position: "bottom-right",
@@ -52,7 +52,7 @@ export function DisplayStage({
   };
 
   const copyUrl = () => {
-    void navigator.clipboard.writeText(`https://${HOST}/api${themeSuffix}`);
+    void navigator.clipboard.writeText(`${API_ORIGIN}/api${themeSuffix}`);
     toast.info("Copied to Clipboard!", {
       position: "bottom-right",
       autoClose: 1500,

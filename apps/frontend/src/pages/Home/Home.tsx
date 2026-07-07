@@ -10,11 +10,12 @@ import { DEFAULT_OPTION as LANGUAGES_DEFAULT_LAYOUT } from "../../components/Hom
 import { DEFAULT_OPTION as STATS_DEFAULT_RANK } from "../../components/Home/StatsRankSection";
 import { DEFAULT_OPTION as WAKATIME_DEFAULT_LAYOUT } from "../../components/Home/WakatimeLayoutSection";
 import {
+  API_ORIGIN,
   DEMO_GIST,
   DEMO_REPO,
   DEMO_USER,
   DEMO_WAKATIME_USER,
-  HOST,
+  FRONTEND_HOST,
 } from "../../constants";
 import { CardType } from "../../models/CardType";
 import { STAGE_LABELS } from "../../models/Stage";
@@ -210,7 +211,7 @@ export function HomeScreen({ stage, setStage }: HomeScreenProps): JSX.Element {
       if (url.includes("code=")) {
         const tempPrivateAccess = url.includes("private");
         const newUrl = url.split("code=", 2) as [string, string];
-        const redirect = `${url.split(HOST)[0] as string}${HOST}/`;
+        const redirect = `${url.split(FRONTEND_HOST)[0] as string}${FRONTEND_HOST}/`;
         window.history.pushState({}, "", redirect);
         setIsLoading(true);
         const userKey = uuidv4();
@@ -258,7 +259,7 @@ export function HomeScreen({ stage, setStage }: HomeScreenProps): JSX.Element {
     switch (selectedCard) {
       case CardType.STATS:
       case CardType.TOP_LANGS:
-        return `https://${HOST}/api${themeSuffix}`;
+        return `${API_ORIGIN}/api${themeSuffix}`;
 
       case CardType.PIN: {
         let myRepo = repo;

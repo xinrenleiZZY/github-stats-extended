@@ -6,9 +6,9 @@ import { useDispatch } from "react-redux";
 import { deleteAccount } from "../../../../api/user";
 import { Button } from "../../../../components/Generic/Button";
 import {
+  API_ORIGIN,
   CLIENT_ID,
   GITHUB_PRIVATE_AUTH_URL,
-  HOST,
 } from "../../../../constants";
 import {
   usePrivateAccess,
@@ -54,7 +54,7 @@ export function LoginAccountManagement(): JSX.Element {
         {privateAccess ? (
           <div className="flex items-center gap-4">
             <a
-              href={`https://${HOST}/api/downgrade?user_key=${userKey as string}`}
+              href={`${API_ORIGIN}/api/downgrade?user_key=${userKey as string}`}
             >
               <Button
                 variant="soft"

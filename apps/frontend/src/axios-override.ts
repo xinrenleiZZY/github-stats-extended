@@ -6,7 +6,7 @@ import {
   DEMO_REPO,
   DEMO_USER,
   DEMO_WAKATIME_USER,
-  HOST,
+  API_ORIGIN,
 } from "./constants";
 import additionalUserStars from "./mockData/additional_user_stars.json" with { type: "json" };
 import commentedIssues from "./mockData/commented_issues.json" with { type: "json" };
@@ -27,7 +27,7 @@ const cachedAxios = setupCache(axios, {
   cacheTakeover: false,
   methods: ["get", "post"],
   cachePredicate: {
-    allowUrls: ["api.github.com", HOST],
+    allowUrls: ["api.github.com", API_ORIGIN],
   },
 });
 
@@ -145,7 +145,7 @@ axios.defaults.adapter = async (config) => {
       return createMockResponse(reviewedPrs, config);
     case `https://api.github.com/search/issues?per_page=1&q=commenter:${DEMO_USER}+-author:${DEMO_USER}+type:issue`:
       return createMockResponse(commentedIssues, config);
-    case `https://${HOST}/api/wakatime-proxy?username=${DEMO_WAKATIME_USER}`:
+    case `${API_ORIGIN}/api/wakatime-proxy?username=${DEMO_WAKATIME_USER}`:
       return createMockResponse(wakatimeProxy, config);
     default:
       return defaultAdapter(config);

@@ -1,6 +1,6 @@
 import { clsx } from "clsx";
 
-import { HOST } from "../../constants";
+import { API_ORIGIN } from "../../constants";
 
 import { SvgInline } from "./SvgInline";
 
@@ -17,7 +17,7 @@ export const CardImage = ({
   compact = false,
   className,
 }: CardImageProps) => {
-  const fullImageSrc = `https://${HOST}/api${imageSrc}&client=wizard`;
+  const fullImageSrc = `${API_ORIGIN}/api${imageSrc}&client=wizard`;
 
   return (
     <div className={clsx("w-full relative", className)}>

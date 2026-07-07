@@ -2,9 +2,12 @@ export const USE_LOGGER = true as boolean;
 
 export const CLIENT_ID = "Ov23liCteJ6VL1vIZZzm";
 
-export const HOST = window.location.host;
+export const FRONTEND_HOST = window.location.host;
+export const API_HOST = "github-stats-extended-backend-eta.vercel.app";
+export const FRONTEND_ORIGIN = `https://${FRONTEND_HOST}`;
+export const API_ORIGIN = `https://${API_HOST}`;
 
-const REDIRECT_URI = `https://${HOST}/`;
+const REDIRECT_URI = `${FRONTEND_ORIGIN}/`;
 
 export const GITHUB_PRIVATE_AUTH_URL = `https://github.com/login/oauth/authorize?scope=user,repo&client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}?mode=private`;
 export const GITHUB_PUBLIC_AUTH_URL = `https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}?mode=public`;

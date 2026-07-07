@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { HOST } from "./constants";
+import { API_ORIGIN } from "./constants";
 
 // See https://github.com/stats-organization/github-stats-extended/pull/27#discussion_r2712184285
 const fetchWakatimeStats = async ({
@@ -15,7 +15,7 @@ const fetchWakatimeStats = async ({
   }
 
   const res = await axios.get<unknown>(
-    `https://${HOST}/api/wakatime-proxy?username=${username}`,
+    `${API_ORIGIN}/api/wakatime-proxy?username=${username}`,
   );
 
   return res.data;
