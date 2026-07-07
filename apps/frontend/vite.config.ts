@@ -6,7 +6,7 @@ import { defineProject } from "vitest/config";
 
 // https://vitejs.dev/config/
 export default defineProject({
-  base: "/frontend/",
+  base: "/",
   plugins: [react(), tailwindcss()],
   build: {
     outDir: "build",

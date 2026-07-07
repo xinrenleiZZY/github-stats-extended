@@ -4,7 +4,7 @@ export const CLIENT_ID = "Ov23lilAc5biyyRY0K1u";
 
 export const HOST = window.location.host;
 
-const REDIRECT_URI = `https://${HOST}/frontend`;
+const REDIRECT_URI = `https://${HOST}/`;
 
 export const GITHUB_PRIVATE_AUTH_URL = `https://github.com/login/oauth/authorize?scope=user,repo&client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}?mode=private`;
 export const GITHUB_PUBLIC_AUTH_URL = `https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}?mode=public`;

@@ -210,7 +210,7 @@ export function HomeScreen({ stage, setStage }: HomeScreenProps): JSX.Element {
       if (url.includes("code=")) {
         const tempPrivateAccess = url.includes("private");
         const newUrl = url.split("code=", 2) as [string, string];
-        const redirect = `${url.split(HOST)[0] as string}${HOST}/frontend`;
+        const redirect = `${url.split(HOST)[0] as string}${HOST}/`;
         window.history.pushState({}, "", redirect);
         setIsLoading(true);
         const userKey = uuidv4();
