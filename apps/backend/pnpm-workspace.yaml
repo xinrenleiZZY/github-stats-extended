@@ -1,0 +1,8 @@
+packages:
+  - '.'
+  - '../../packages/*'
+
+catalog:
+  axios: ^1.17.0
+  jsdom: 29.1.1
+  vitest: 4.1.8
