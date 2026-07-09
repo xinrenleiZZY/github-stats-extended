@@ -1,8 +1,61 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "installCommand": "cd ../.. && pnpm install --frozen-lockfile",
-  "buildCommand": "cd ../.. && pnpm run build:packages && pnpm --filter=@stats-organization/github-readme-stats-backend deploy --prod ./apps/deployment",
-  "outputDirectory": "../deployment",
+  "buildCommand": "cd ../.. && pnpm run build:packages && pnpm --filter=@stats-organization/github-readme-stats-backend deploy --prod ./apps/backend/.pnpm-deploy && cp -r ./apps/backend/.pnpm-deploy/node_modules/. ./apps/backend/node_modules/",
+  "rewrites": [
+    {
+      "source": "/api/status/up",
+      "destination": "/api/[...path]"
+    },
+    {
+      "source": "/api/status/pat-info",
+      "destination": "/api/[...path]"
+    },
+    {
+      "source": "/api/authenticate",
+      "destination": "/api/[...path]"
+    },
+    {
+      "source": "/api/delete-user",
+      "destination": "/api/[...path]"
+    },
+    {
+      "source": "/api/downgrade",
+      "destination": "/api/[...path]"
+    },
+    {
+      "source": "/api/gist",
+      "destination": "/api/[...path]"
+    },
+    {
+      "source": "/api/pin",
+      "destination": "/api/[...path]"
+    },
+    {
+      "source": "/api/top-langs",
+      "destination": "/api/[...path]"
+    },
+    {
+      "source": "/api/user-access",
+      "destination": "/api/[...path]"
+    },
+    {
+      "source": "/api/wakatime",
+      "destination": "/api/[...path]"
+    },
+    {
+      "source": "/api/wakatime-proxy",
+      "destination": "/api/[...path]"
+    },
+    {
+      "source": "/api/repeat-recent",
+      "destination": "/api/[...path]"
+    },
+    {
+      "source": "/api",
+      "destination": "/api/[...path]"
+    }
+  ],
   "redirects": [
     {
       "source": "/",
